@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ 
+  <title>DOM JS Stuff</title>
+</head>
+
+<body>
+  <h1>Notes Apps</h1>
+  <h2>Take notes and never forget</h2>
+  <label>
+    <input id="search-text" type="text" placeholder="Enter Some Shit">
+  </label>
+  <select id="filter-by">
+    <option value="byEdited">Sort by last edited</option>
+    <option value="byCreated">Sort by recently created</option>
+    <option value="alphabetical">Sort alphabetically</option>
+  </select>
+  <div id="notes"></div>
+  <button id="create-note">create note</button>
+  
+
+  <script src="uuid.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+  <script src="notes-functions.js"></script>
+  <script src="notes-app.js"></script>
+</body>
+
+</html>
