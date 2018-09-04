@@ -30,6 +30,16 @@ guessesEl.textContent = game1.getStatusMessage()
 
 })
 
+getPuzzle('2', (error, puzzle) => {
+  if (error) {
+    console.log(`Error ${error}`)
+  } else {
+    console.log(puzzle)
+  }
+
+})
+
+
 /* Getter/Setter Version
 
 
@@ -47,15 +57,75 @@ guessesEl.textContent = game1.statusMessage
 
 // Making HTTP requests
 // Via browser constructor func
-const request = new XMLHttpRequest();
+// const request = new XMLHttpRequest();
 
-request.addEventListener('readystatechange', (e) => {
-  if(e.target.readyState === 4) {
-    const data = JSON.parse(e.target.responseText)
-    console.log(data);
-  }
+// request.addEventListener('readystatechange', (e) => {
+//   // Ensure response text only used when state and status correct
+//   if(e.target.readyState === 4 && e.target.status === 200) {
+//     const data = JSON.parse(e.target.responseText)
+//     console.log(e.target.status);
+//     console.log(data);
+//   } else if (e.target.readyState === 4) {
+//     console.log('An error has occured')
+//   }
 
-})
+// })
 
-request.open('GET', 'http://puzzle.mead.io/puzzle')
-request.send();
+// request.open('GET', 'http://puzzle.mead.io/puzzle')
+// request.send();
+
+// Make request for all countries
+// Parse the responseText to get the array of objects
+// Find your country object by its country code (alpha2Code prop)
+// Print full country name data
+
+
+// MY SOLUTION
+
+
+// request.open('GET', 'https://restcountries.eu/rest/v2/all');
+// request.send();
+
+// request.addEventListener('readystatechange', (e) => {
+//   // console.log(e.target.responseText)
+//   if(e.target.readyState === 4 && e.target.status === 200) {
+//     const countryData = JSON.parse(e.target.responseText)
+//     console.log(countryData[0])
+//     for(let i = 0; i < countryData.length; i++) {
+//       if(countryData[i].alpha2Code === "AF") {
+//         let countryInfo = {};
+//         countryInfo.name = countryData[i].name;
+//         countryInfo.capital = countryData[i].capital;
+//         countryInfo.population = countryData[i].population;
+//         countryInfo.languages = [];
+//         countryData[i].languages.forEach(function(language) {
+//           console.log(language.name);
+//           countryInfo.languages.push(language.name)
+//         });
+//         // countryInfo.languages = countryData[i].languages;
+//         console.log(countryInfo)
+//         return countryInfo;
+//       }
+//     }
+//   } else {
+//     console.log('ERROR')
+//     return 'Error. Invalid request'
+//   }
+// })
+
+// // Alternate solution
+// const countryCode = "US";
+// const countryRequest = new XMLHttpRequest();
+
+// countryRequest.addEventListener('readystatechange', (e) => {
+//   if(e.target.readyState === 4 && e.target.status === 200) {
+//     const data = JSON.parse(e.target.responseText);
+//     const country = data.find((country) => country.alpha2Code === countryCode);
+//     console.log(country.name)
+//   } else if (e.target.readyState === 4) {
+//     console.log('Cannot fetch data');
+//   }
+// })
+
+// countryRequest.open('GET', 'https://restcountries.eu/rest/v2/all');
+// countryRequest.send();
