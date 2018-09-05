@@ -70,3 +70,11 @@ const getCountry = (countryCode, callback) => {
     }
   })
 }
+
+// Promise Version
+
+getCountryPromise('CA').then((countryInfo) => {
+  console.log(countryInfo)
+  }, (err) => {
+    console.log(`Error ${err}`)
+  });

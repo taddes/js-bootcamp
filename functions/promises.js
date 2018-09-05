@@ -30,3 +30,24 @@ myPromise.then((data) => {
 }, (err) => {
   console.log(err);
 });
+
+// Promise 2.0 - argument option for data
+const getDataPromise = (data) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`This is the success data: ${data}`)
+      
+    }, 2000)
+  })
+
+}
+
+const testPromise = getDataPromise("This be the passed in data")
+
+testPromise.then((data) => {
+  console.log(data)
+}, (err) => {
+  console.log(err);
+});
+
+

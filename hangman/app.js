@@ -30,14 +30,12 @@ guessesEl.textContent = game1.getStatusMessage()
 
 })
 
-getPuzzle('2', (error, puzzle) => {
-  if (error) {
-    console.log(`Error ${error}`)
-  } else {
-    console.log(puzzle)
-  }
+getPuzzle('2').then((puzzle) => {
+  console.log(puzzle);
+}, (err) => {
+  console.log(`Error: ${err}`)
+});
 
-})
 
 
 /* Getter/Setter Version
