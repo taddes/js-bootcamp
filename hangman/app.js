@@ -32,9 +32,9 @@ guessesEl.textContent = game1.getStatusMessage()
 
 getPuzzle('2').then((puzzle) => {
   console.log(puzzle);
-}, (err) => {
+}).catch((err) => {
   console.log(`Error: ${err}`)
-});
+})
 
 
 

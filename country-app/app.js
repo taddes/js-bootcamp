@@ -58,8 +58,7 @@ request.addEventListener('readystatechange', (e) => {
 */
 
 const getCountry = (countryCode, callback) => {
-  const countryRequest = new XMLHttpRequest()
-
+  const countryRequest = new XMLHttpRequest();
   countryRequest.addEventListener('readystatechange', (e) => {
     if (e.target.readyState === 4 && e.target.status === 200) {
       const data = JSON.parse(e.target.responseText)
@@ -73,8 +72,9 @@ const getCountry = (countryCode, callback) => {
 
 // Promise Version
 
-getCountryPromise('CA').then((countryInfo) => {
-  console.log(countryInfo)
-  }, (err) => {
-    console.log(`Error ${err}`)
-  });
+// getCountryPromise('CA').then((countryInfo) => {
+//   console.log(countryInfo)
+//   }, (err) => {
+//     console.log(`Error ${err}`)
+//   });
+

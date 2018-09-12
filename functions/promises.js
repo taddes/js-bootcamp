@@ -51,3 +51,30 @@ testPromise.then((data) => {
 });
 
 
+// PROMISE .then
+
+const getDataPromiseChaining = (num) => new Promise((resolve, reject) => {
+  setTimeout(() => {
+    typeof num === 'number' ? resolve(num * 2) : reject('number must be provided')
+  }, 2000)
+})
+
+// Runs the funciton twice
+getDataPromiseChaining(2).then((data) => {
+  getDataPromiseChaining(data).then((data) => {
+    console.log(`Promise data ${data}`)
+  })
+  }, (err) => {
+    console.log(err)
+  })
+
+  // PROMISE CHAINING
+  getDataPromiseChaining(10).then((data) => {
+    return getDataPromiseChaining(data)
+  }).then((data) => {
+    return getDataPromiseChaining(data)
+  }).then((data) => {
+    console.log(data)
+  }).catch((err) => {
+    console.log(err)
+  })
