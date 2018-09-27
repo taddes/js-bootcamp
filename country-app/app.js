@@ -1,4 +1,6 @@
-const request = new XMLHttpRequest();
+
+
+let request = new XMLHttpRequest();
 request.open('GET', 'https://restcountries.eu/rest/v2/all');
 request.send();
 
@@ -28,6 +30,7 @@ request.addEventListener('readystatechange', (e) => {
     return 'Error. Invalid request'
   }
 })
+
 
 // // Alternate solution
 // const countryCode = "US";
@@ -70,6 +73,11 @@ const getCountry = (countryCode, callback) => {
   })
 }
 
+getCountryFetch('CA').then((country) => {
+  console.log(country.name)
+}).catch((err) => {
+  console.log('Error',err)
+})
 // Promise Version
 
 // getCountryPromise('CA').then((countryInfo) => {
@@ -78,3 +86,6 @@ const getCountry = (countryCode, callback) => {
 //     console.log(`Error ${err}`)
 //   });
 
+getCountryAsyncAwait('CH').then((country) => {
+  console.log(country)
+})

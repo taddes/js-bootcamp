@@ -1,26 +1,2 @@
-'use strict';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var name = 'Taddes';
-console.log(name);
-
-var Hangman = function () {
-  function Hangman() {
-    _classCallCheck(this, Hangman);
-  }
-
-  _createClass(Hangman, [{
-    key: 'myMethod',
-    value: function myMethod() {
-      return 'Hey there ' + name;
-    }
-  }]);
-
-  return Hangman;
-}();
-
-var hangman = new Hangman();
-console.log(hangman.myMethod());
+!function(e){var o={};function n(r){if(o[r])return o[r].exports;var t=o[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,n),t.l=!0,t.exports}n.m=e,n.c=o,n.d=function(e,o,r){n.o(e,o)||Object.defineProperty(e,o,{configurable:!1,enumerable:!0,get:r})},n.r=function(e){Object.defineProperty(e,"__esModule",{value:!0})},n.n=function(e){var o=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(o,"a",o),o},n.o=function(e,o){return Object.prototype.hasOwnProperty.call(e,o)},n.p="",n(n.s=2)}([function(e,o,n){"use strict";Object.defineProperty(o,"__esModule",{value:!0});o.scream=function(e){var o=e.toUpperCase();return o+="!!!"},o.default=function(e){return e.toUpperCase(e)+"!"}},function(e,o,n){"use strict";Object.defineProperty(o,"__esModule",{value:!0}),console.log("utilities.js");console.log("from da code");o.add=function(e,o){return e+o},o.name="Pepper",o.default=function(e){return e*e}},function(e,o,n){"use strict";var r=n(1),t=l(r),u=n(0),c=l(u);function l(e){return e&&e.__esModule?e:{default:e}}console.log("index.js"),console.log(r.name),console.log((0,r.add)(5,10)),console.log("KARK"),console.log("pork"),console.log((0,u.scream)("Aw fuck")),console.log((0,c.default)("fuck")),console.log((0,t.default)(200));console.log(function(e,o){return(e+o)/2}());var s=function(e){for(var o=arguments.length,n=Array(o>1?o-1:0),r=1;r<o;r++)n[r-1]=arguments[r];var t=0;return n.forEach(function(e){return t+=e}),"average "+e+"is "+t/n.length}("grade",12,22,75,68);console.log(s)}]);
+//# sourceMappingURL=bundle.js.map
