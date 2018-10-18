@@ -1,7 +1,6 @@
 const getCountryPromise = (countryCode) => {
   return new Promise((resolve, reject) => {
 
-
     const request = new XMLHttpRequest();
 
     request.addEventListener('readystatechange', (e) => {
@@ -32,3 +31,32 @@ const getCountryPromise = (countryCode) => {
   })
 
 }
+
+
+// FETCH VERSION
+
+const getCountryFetch = (countryCode) => {
+  return fetch('https://restcountries.eu/rest/v2/all').then((response) => {
+    if(response.status === 200) {
+      return response.json();
+    } else {
+      throw new Error('Unable to fetch data')
+    }
+  }).then((data) => {
+    return data.find((country) => country.alpha2Code === countryCode)
+  })
+}
+
+// Async Await Version
+
+const getCountryAsyncAwait = async (countryCode) => {
+  const response = await fetch('https://restcountries.eu/rest/v2/all')
+
+    if (response.status === 200) {
+      const data = await response.json()
+      return data.find((country) => country.alpha2Code === countryCode)
+    } else {
+      throw new Error('SHYT')
+    }
+  }
+

@@ -16,25 +16,35 @@ Boolean: myBoolean --> Boolean.prototype -- Object.prototype --> null
 
 const puzzleEl = document.querySelector('#puzzle')
 const guessesEl = document.querySelector('#guesses') 
-const game1 = new Hangman('Tiger', 3)
-
-puzzleEl.textContent = game1.getPuzzle()
-guessesEl.textContent = game1.getStatusMessage()
-
+let game1;
 
 window.addEventListener('keypress', function(e) {
-const guess = String.fromCharCode(e.charCode)
-game1.makeGuess(guess)
-puzzleEl.textContent = game1.getPuzzle()
-guessesEl.textContent = game1.getStatusMessage()
-
+  const guess = String.fromCharCode(e.charCode)
+  game1.makeGuess(guess)
+  render()
 })
 
-getPuzzle('2').then((puzzle) => {
-  console.log(puzzle);
-}).catch((err) => {
-  console.log(`Error: ${err}`)
-})
+const render = () => {
+  puzzleEl.textContent = game1.puzzle
+  guessesEl.textContent = game1.getStatusMessage
+}
+
+const startGame = async () => {
+  const puzzle = await getPuzzle('2')
+  game1 = new Hangman(puzzle, 5)
+  render()
+}
+
+document.querySelector('#reset').addEventListener('click', startGame)
+
+startGame()
+
+
+// getPuzzle('2').then((puzzle) => {
+//     console.log(puzzle);
+//   }).catch((err) => {
+//     console.log(`Error: ${err}`)
+// })
 
 
 
