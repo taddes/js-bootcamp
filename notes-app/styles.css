@@ -1,3 +1,11 @@
+
+/* 
+BEM - Block Element Modifier
+Block - high level container -> home
+Element - sub element home__kitchen
+Modifier - house--condo
+*/
+
 body{
   font-family: Tahoma;
   color: #444;

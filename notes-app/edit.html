@@ -5,13 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Edit Note</title>
+  <link href="./styles/styles.css" rel="stylesheet">
 </head>
 <body>
-  <a href="/notes-app"><button>Return to Homepage</button></a>
-  <input id="note-title" type="text" placeholder="Note title">
-  <span id="last-edited"></span>
-  <textarea  id="note-body" placeholder="Enter Note Text"></textarea>
-  <button id="remove-note">Remove Note</button>
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">Notes Apps</h1>
+            <h2 class="header__subtitle">Take notes and never forget</h2>
+        </div>
+      </header>
+
+      <div class="actions">
+        <div class="actions__container actions__container--spaced">
+            <a href="/notes-app">Return to Homepage</a>
+            <span id="last-edited"></span>
+        </div>
+      </div>
+
+      <input id="note-title" type="text" placeholder="Note title">
+      <textarea  id="note-body" placeholder="Enter Note Text"></textarea>
+      <button id="remove-note">Remove Note</button>
 
   <script src="./scripts/notes-functions.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
