@@ -29,17 +29,9 @@ const removeNote = (id) => {
 // Generate the DOM structure for anote
 const generateNoteDOM = (note) => {
 
-  const noteEl = document.createElement('div')
-  const textEl = document.createElement('a')
-  const button = document.createElement('button')
-
-  // Set up remove note button
-  button.textContent = 'x'
-  noteEl.appendChild(button)
-  button.addEventListener('click', function() {
-    removeNote(note.id)
-    saveNotes(notes)
-  })
+  const noteEl = document.createElement('a')
+  const textEl = document.createElement('p')
+  const statusEl = document.createElement('p')
 
   // Setup the note title text
   if(note.title.length > 0) {
@@ -47,8 +39,17 @@ const generateNoteDOM = (note) => {
   } else {
     textEl.textContent = 'Unnamed note'
   }
-  textEl.setAttribute('href', `/notes-app/edit.html#${note.id}`)
+  textEl.classList.add('list-item__title')
   noteEl.appendChild(textEl)
+
+  // set up link
+  noteEl.setAttribute('href', `/notes-app/edit.html#${note.id}`)
+  noteEl.classList.add('list-item')
+
+  // set up status
+  statusEl.textContent - generateLastEdited(note.updatedAt)
+  statusEl.classList.add('list-item__subtitle')
+  noteEl.appendChild(statusEl)
   return noteEl
 }
 
@@ -93,17 +94,26 @@ const sortNotes = (notes, sortBy) => {
 
 // Render application notes
 const renderNotes = (notes, filters) => {
+  const notesEl = document.querySelector('#notes')
   notes = sortNotes(notes, filters.sortBy)
   const filteredNotes = notes.filter((note) => {
     return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
   })
+    notesEl.innerHTML = ''
 
-  document.querySelector('#notes').innerHTML = ''
+  if (filteredNotes.length > 0) {
+    filteredNotes.forEach((note) => {
+      const noteEl = generateNoteDOM(note)
+     notesEl.appendChild(noteEl)
+    })
+  } else {
+    const emptyMessage = document.createElement('p')
+    emptyMessage.textContent = 'No notes to show'
+    emptyMessage.classList.add('empty-message')
+    notesEl.appendChild(emptyMessage);
 
-  filteredNotes.forEach((note) => {
-    const noteEl = generateNoteDOM(note)
-    document.querySelector('#notes').appendChild(noteEl)
-  })
+  }
+
 }
 
 // Generate the last edited message
