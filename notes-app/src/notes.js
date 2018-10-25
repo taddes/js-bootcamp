@@ -12,13 +12,28 @@ const loadNotes = () => {
 
 }
 
+// Save the notes to local storage
+
+const saveNotes = () => {
+  localStorage.setItem('notes', JSON.stringify(notes));
+}
 // Expose notes from module
 const getNotes = () => notes;
 
 const createNote = () => {
-  
+  const id = uuidv4();
+  const timestamp = moment().valueOf();
+
+  notes.push({
+    id: id,
+    title: '',
+    body: '',
+    createdAt: timestamp,
+    updatedAt: timestamp
+  });
+  saveNotes();
 }
 
 notes = loadNotes();
 
-export { getNotes }
+export { getNotes, createNote }

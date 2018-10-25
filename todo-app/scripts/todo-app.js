@@ -15,15 +15,18 @@ document.querySelector("#enter-todo").addEventListener("input", (e) => {
 });
 
 document.querySelector('#todo-form').addEventListener('submit', (e) => {
+  const text = e.target.elements.text.value.trim();
   e.preventDefault()
-  todos.push({
-    id: uuidv4(),
-    title: e.target.elements.submitTodo.value,
-    completed: false
-  })
+  if (text.length > 0) {
+    todos.push({
+      id: uuidv4(),
+      text,
+      completed: false
+    })
   saveTodos(todos)
   renderTodos(todos, filters)
   e.target.elements.submitTodo.value = ''
+  }
 })
 
 
