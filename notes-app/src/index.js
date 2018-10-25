@@ -7,7 +7,7 @@ renderNotes();
 
 document.querySelector('#create-note').addEventListener('click', (e) => {
   const id = createNote();
-  location.assign(`/notes-app/edit.html#${id}`)
+  location.assign(`/edit.html#${id}`)
 })
 
 

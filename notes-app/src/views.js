@@ -1,6 +1,6 @@
 import moment from 'moment';
 import { getFilters } from './filters';
-import { sortFilters, getNotes } from './notes';
+import { sortNotes, getNotes } from './notes';
 
 // Generate the DOM structure for anote
 const generateNoteDOM = (note) => {
@@ -19,7 +19,7 @@ const generateNoteDOM = (note) => {
   noteEl.appendChild(textEl)
 
   // set up link
-  noteEl.setAttribute('href', `/notes-app/edit.html#${note.id}`)
+  noteEl.setAttribute('href', `/edit.html#${note.id}`)
   noteEl.classList.add('list-item')
 
   // set up status

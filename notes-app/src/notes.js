@@ -1,3 +1,6 @@
+import uuidv4 from 'uuid';
+import moment from 'moment';
+
 let notes = [];
 
 // Check for existing notes information in local storage

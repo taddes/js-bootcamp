@@ -21,13 +21,13 @@ titleElement.addEventListener('input', (e) => {
 
 bodyElement.addEventListener('input', (e) => {
   const note = updateNote(noteId, {
-    body: e.target.body;
+    body: e.target.body
   })
   dateElement.textContent = generateLastEdited(note.updatedAt);
 });
 
 removeElement.addEventListener('click', (e) => {
-  removeNote(nnoteId);
+  removeNote(noteId);
   location.assign('/index.html')
 });
 
