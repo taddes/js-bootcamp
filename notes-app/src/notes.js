@@ -98,6 +98,7 @@ const updateNote = (id, updates) => {
     note.updatedAt = moment().valueOf();
   }
   saveNotes();
+  return note;
 }
 
 notes = loadNotes();

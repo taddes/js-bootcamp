@@ -1,6 +1,6 @@
 import moment from 'moment';
 import { getFilters } from './filters';
-import { sortFilters } from './notes';
+import { sortFilters, getNotes } from './notes';
 
 // Generate the DOM structure for anote
 const generateNoteDOM = (note) => {
@@ -52,7 +52,28 @@ const renderNotes = () => {
   }
 }
 
+const initializeEditPage = (noteId) => {
+
+const titleElement = document.querySelector('#note-title');
+const bodyElement = document.querySelector('#note-body');
+const dateElement = document.querySelector('#last-edited');
+
+  // Function to return all notes stored in local storage
+const notes = getNotes();
+
+// See if note id matches a note.  If not, redirect to dashboard
+const note = notes.find((note) => note.id === noteId);
+
+if (!note) {
+  location.assign('/index.html')
+}
+
+titleElement.value = note.title;
+bodyElement.value = note.body;
+dateElement.textContent = generateLastEdited(note.updatedAt);
+}
+
 // Generate the last edited message
 const generateLastEdited = (timestamp) => `last edited ${moment(timestamp).fromNow()}`
 
-export {generateNoteDOM, generateLastEdited, renderNotes }
+export {generateNoteDOM, generateLastEdited, renderNotes, initializeEditPage }
