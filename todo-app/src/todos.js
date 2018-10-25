@@ -35,6 +35,7 @@ const removeTodo = (id) => {
   if(todoIndex > -1) {
     todos.splice(todoIndex, 1)
   }
+  saveTodos();
 }
 
 // Toggle the completed value for a given todo
@@ -44,8 +45,9 @@ const toggleTodo = (id) => {
   if (!todo) {
     todo.completed = !todo.completed
   }
+  saveTodos();
 }
 
 loadTodos();
 
-export { getTodos, createTodo }
+export { getTodos, createTodo, removeTodo, toggleTodo }

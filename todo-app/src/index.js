@@ -1,6 +1,6 @@
 
 import { getFilters, setFilters} from './filters';
-import { getTodos, createTodo} from './todos'
+import { getTodos, createTodo, removeTodo, toggleTodo } from './todos'
 
 
 console.log('index.js')
