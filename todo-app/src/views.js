@@ -77,5 +77,6 @@ const generateSummaryDOM = (incompleteTodos) => {
   summary.classList.add('list-title')
   summary.textContent = `You currently have ${incompleteTodos.length} todo${plural}`;
   return summary
-
 }
+
+export {generateSummaryDOM, renderTodos, generateTodoDOM}

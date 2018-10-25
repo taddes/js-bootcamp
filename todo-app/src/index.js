@@ -1,32 +1,32 @@
 
-import { getFilters, setFilters} from './filters';
-import { getTodos, createTodo, removeTodo, toggleTodo } from './todos'
+import {setFilters} from './filters'
+import { renderTodos } from './views'
+import { createTodo } from './todos'
+
+renderTodos()
+
+document.querySelector("#enter-todo").addEventListener("input", (e) => {
+  setFilters({
+    searchText: e.target.value
+  })
+  renderTodos();
+});
+
+document.querySelector('#todo-form').addEventListener('submit', (e) => {
+  const text = e.target.elements.text.value.trim();
+  e.preventDefault()
+  if (text.length > 0) {
+    createTodo(text)
+    renderTodos()
+    e.target.elements.submitTodo.value = ''
+  }
+})
 
 
-console.log('index.js')
-console.log(name)
+document.querySelector('#hide-completed').addEventListener('change', (e) => {
+  setFilters({
+    hideCompleted: e.target.checked
+  })
+  renderTodos()
+})
 
-console.log(add(5,10))
-console.log('KARK')
-console.log('pork')
-
-console.log(scream('Aw fuck'))
-console.log(screamSlim('fuck'))
-console.log(otherSquare(200))
-
-const calculateAverage = (num1, num2) => {
-  return (num1 + num2) / 2
-}
-
-console.log(calculateAverage())
-
-// Rest Param dynamic version
-const calculateAverageRestParam = (thing, ...numbers) => {
-  let sum = 0
-  numbers.forEach((num) => sum += num)
-  const average = sum / numbers.length
-  return `average ${thing }is ${average}`
-}
-
-let value = calculateAverageRestParam('grade', 12, 22, 75, 68)
-console.log(value)
